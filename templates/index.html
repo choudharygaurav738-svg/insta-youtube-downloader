@@ -1,17 +1,76 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Downloader</title>
+<meta charset="UTF-8">
+<title>Insta & YouTube Downloader</title>
+
+<style>
+body{
+  background:linear-gradient(135deg,#141e30,#243b55);
+  font-family:system-ui;
+  color:#fff;
+}
+.container{
+  max-width:420px;
+  margin:60px auto;
+  padding:20px;
+  background:#111;
+  border-radius:15px;
+  box-shadow:0 15px 30px rgba(0,0,0,.5);
+}
+h2{text-align:center;}
+input,select,button{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border-radius:8px;
+  border:none;
+}
+button{
+  background:#ff2d55;
+  color:white;
+  font-weight:bold;
+}
+#loader{
+  display:none;
+  text-align:center;
+  margin-top:15px;
+  color:#0f0;
+}
+</style>
 </head>
+
 <body>
-  <h2>Instagram / YouTube Downloader</h2>
+
+<div class="container">
+  <h2>Insta / YouTube Downloader</h2>
 
   <form method="post">
     <input type="text" name="url" placeholder="Paste public link" required>
-    <br><br>
-    <button type="submit">Download</button>
+
+    <select name="quality">
+      <option value="best">Best Quality</option>
+      <option value="best[height<=720]">720p</option>
+      <option value="best[height<=360]">360p</option>
+    </select>
+
+    <button name="type" value="video">Download Video</button>
+    <button name="type" value="mp3">Download MP3</button>
   </form>
+
+  <p id="loader">Downloading… please wait</p>
+
+  <p style="font-size:12px;text-align:center;margin-top:20px;">
+    For personal use only
+  </p>
+</div>
+
+<script>
+document.querySelector("form").onsubmit = ()=>{
+  document.getElementById("loader").style.display="block";
+}
+</script>
 
 </body>
 </html>
